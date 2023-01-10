@@ -39,6 +39,7 @@ Now you are ready for including headers:
 
 
 
+
 after setting structures node member you can simply initalize a Queue, Stack or List object. 
 Warn that queueinit() function returns pointer to Queue :
 
@@ -57,7 +58,18 @@ after initialize your you can add  new nodes to these objects:
 
 Enqueue functions adds new to to queue respect to queue datastructure's rules. also you can access queues elements by [QUEUENAME]->head->[YOUR VARIABLE NAME]
 Also each qnode elements contains nextPtr so you can traverse around each individual node with [QUEUENAME]->head->nextPtr->[YOUR VARIABLE NAME]
-Each nodes contains index number also using them may be useful for your code.
+Each nodes contains index number also using them may be useful for your code. 
+
+as we mentioned before  all functions and nodes formed respect to your settings. So enqueue functions parameters list formed with our settings #define QNODE0TYPE char* #define QNODE0NAME name. 
+and warn that their position are formed with node setters number
+
+Queue, Stacks and List object serves  you many attributes few of them is:
+
+its_first_queue--->count : 				Returns node count of queue
+its_first_queue--->isEmpty : 			returns True if queue is not empty, False if its empty
+its_first_queue--->head : 				Returns head of of queue
+its_first_queue--->head--->nextPtr		May be used to traverse arround queues Nodes.
+
 
     
     push(its_first_stack, 10);
@@ -134,15 +146,60 @@ queuervrs(Queue*) function takes parameter as pointer to queue to reverse and do
 stackrvrs(Stack*) function takes parameter as pointer to Stack to reverse and doesnt return anything after reversing stack. 
 
 
+    List *list_to_reverse = listinit();
+    append(list_to_reverse, "first");
+    append(list_to_reverse, "second");
+    printf("list_to_reverse's first element is: \"%s\" second element:\" %s\"\n" , list_to_reverse->root->text , list_to_reverse->root->nextPtr->text);
+    listrvrs(list_to_reverse);
+    printf("list_to_reverse's top element is now: \"%s\" second element is now :\" %s\"\n\n" ,list_to_reverse->root->text , list_to_reverse->root->nextPtr->text);
+
+listrvrs(List*) function takes parameter as pointer to List to reverse and doesnt return anything after reversing stack. 
 
 
-as we mentioned before  all functions and nodes formed respect to your setting so enqueue functions parameters list formed with our settings #define QNODE0TYPE char* #define QNODE0NAME name. 
-and warn that their position are formed with node setters number
+
+Cstructures also contains functions that lets List , Stack or Queues nodes specified with index;
+
+    printf("queue_to_reverse's nodes with index 1 contains value: \"%s \"\n" , queueget(queue_to_reverse, 1)->name);
+    printf("stack_to_reverse's nodes with index 1 contains value: \"%d \"\n" , stackget(stack_to_reverse, 1)->number);
+    printf("list_to_reverse's nodes with index 1 contains value: \"%s \"\n" , listget(list_to_reverse, 1)->text);
+
+queueget(Queue* , int) , stackget(Stack*, int) and listget(List* , int) functions returns object reference (pointer) to qnode , snode and lnode object with related index.
 
 
-Queue object serves  you many attributes few of them is:
+Also There is peek functions for List , Stacks and Queues. peek functions help you to seek any type of value in these objects nodes. if founds the seeking value returns object reference to that node if not returns NULL
 
-its_first_queue--->count : 				Returns node count of queue
-its_first_queue--->isEmpty : 			returns True if queue is not empty, False if its empty
-its_first_queue--->head : 				Returns head of of queue
-its_first_queue--->head--->nextPtr		May be used to traverse arround queues Nodes.
+   char* looking_for_value = "first";
+    lnode *findit = listpeek(list_to_reverse, &looking_for_value);
+    printf("list_to_reverse list contains \"%s \" value in node with index :\"%d\" " , findit->text,findit->index);
+
+lnode *listpeek(List* , void*) functions takes argument as pointer to List , and pointer to void. you can pass pointer to any type of object here you can seek for int , char* , float , double and more. this specs gives you extremely flexible search possibility along nodes.
+
+
+    char* looking_in_queue = "im first element";
+    qnode *find_queue = queuepeek(queue_to_reverse, &looking_in_queue);
+    printf("list_to_reverse list contains \"%s \" value in node with index :\"%d\" \n\n" , find_queue->name , find_queue->index);
+
+
+You can to same in queues with qnode *queuepeek(Queue* , void*) function.
+
+
+    int looking_in_stack = 1;
+    snode *find_stack = stackpeek(stack_to_reverse, &looking_in_stack);
+    printf("list_to_reverse list contains \"%d \" value in node with index :\"%d\" \n\n" , find_stack->number , find_stack->index);
+
+Also Stacks has same functions to : snode *stackpeek(Stack*, void*)
+
+
+
+Also List has special function called void listextend(List*,List*)
+ 
+
+	List *base_list = listinit()
+    append(base_list, "its the baselist first node");
+    List *extender_list = listinit();
+    append(extender_list, "its extenders first node");
+    listextend(base_list, extender_list);
+    printf("base list 1st node contains \"%s\" its extenders node contains:\"%s\"" , base_list->root->text , base_list->root->nextPtr->text);
+
+This function extend first List with second one thus second list nodes become accessable within first List.
+
