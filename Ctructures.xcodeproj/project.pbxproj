@@ -26,6 +26,9 @@
 		1B0CBDA22965DD4000D6253F /* Ctructures */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Ctructures; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B0CBDA52965DD4000D6253F /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		1B369B32296D8A1E00BE65E1 /* queue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = queue.h; sourceTree = "<group>"; };
+		1B369B33296D8E3600BE65E1 /* stack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
+		1B369B35296DA1A400BE65E1 /* linkedlist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = linkedlist.h; sourceTree = "<group>"; };
+		1B369B36296DA71900BE65E1 /* readme Documentation.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "readme Documentation.rtf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +45,9 @@
 		1B0CBD992965DD4000D6253F = {
 			isa = PBXGroup;
 			children = (
+				1B369B36296DA71900BE65E1 /* readme Documentation.rtf */,
+				1B369B35296DA1A400BE65E1 /* linkedlist.h */,
+				1B369B33296D8E3600BE65E1 /* stack.h */,
 				1B369B32296D8A1E00BE65E1 /* queue.h */,
 				1B0CBDA42965DD4000D6253F /* Ctructures */,
 				1B0CBDA32965DD4000D6253F /* Products */,
