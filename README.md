@@ -1,6 +1,3 @@
-# Ctructures
-This git abstract you from general data structures like Queue , Stacks , Linked list.
-
 
 Cstructures Documentation:
 
@@ -72,18 +69,69 @@ Also each snode elements contains nextPtr so you can traverse around each indivi
 Each nodes contains index number also using them may be useful for your code.
 
 
-
-
-
     append(its_first_list, "im lists first element");
     printf("List first nodes index is %d and element of node  first node is \" %s\" \n " , its_first_list->root->index,its_first_list->root->text);
     
     insert(its_first_list, 0, "im going to be first node");
     printf("List first nodes index is %d and element of node  first node is \" %s \" \n " , its_first_list->root->index,its_first_list->root->text);
 
+
 There is two options for adding elements to list append functions adds node to end of function.  insert functions adds index to specified position. also you can access List elements by [LISTNAME]->root->[YOUR VARIABLE NAME]
 Also each lnode elements contains nextPtr so you can traverse around each individual node with [LISTNAME]->root->nextPtr->[YOUR VARIABLE NAME]
 Each nodes contains index number also using them may be useful for your code.
+
+Also these element adding functions return True if element added to structure successfully else it return "False".
+
+
+Also there is node removing function for every data strucuture:
+
+
+    qnode dequeued = dequeue(its_first_queue);
+    printf("element with index %d removed and it was consisting \" %s \" \n" , dequeued.index , dequeued.name);
+    printf("Queue count is now \"%d\" \n\n" , its_first_queue->count);
+
+
+dequeue function takes and input as pointer to Queue object and removes qnode object and returns this removed object. Removing performed respect to queue (LIFO) rules. also its deallocates node from memory so you don't have to worry about memory issues.
+
+
+    snode popped = pop(its_first_stack);
+    printf("element with index %d removed and it was consisting \" %d \" \n" , popped.index , popped.number);
+    printf("Stack count is now \"%d\" \n\n" , its_first_stack->count);
+
+
+pop function function removes and returns a node from Stack object. removing performed respect to Stack rules (FIFO). pop function returns a copy of removed node as snode object and deallocates actual object from memory.
+
+
+    lnode removed = listremove(its_first_list, 1);
+    printf("element with index %d removed and it was contaning \"%s\"\n" , removed.index, removed.text);
+    printf("list count is now \"%d\" \n\n",its_first_list->count);
+
+
+listremove function removes a node from linked list. you should pass pointer to list that you would like to manipulate. Also listremove function has extra ability that allows you to remove any list node specified with index. listremove function returns a copy of removed lnode object and deallocates actual node from memory.
+    
+
+Reverse functions are built for every data List's Stacks and Queues: 
+
+   
+	Queue *queue_to_reverse = queueinit();
+    enqueue(queue_to_reverse, "im first element");
+    enqueue(queue_to_reverse, "im second element");
+    printf("queue_to_revers's first element is: \"%s\" second element:\" %s\"\n" , queue_to_reverse->head->name , queue_to_reverse->head->nextPtr->name);
+    queuervrs(queue_to_reverse);
+   printf("queue_to_revers's first element is now : \"%s\" second element is now:\" %s\"\n" , queue_to_reverse->head->name , queue_to_reverse->head->nextPtr->name);
+
+queuervrs(Queue*) function takes parameter as pointer to queue to reverse and doesnt return anything after reversing queue.
+
+	
+	Stack *stack_to_reverse = stackinit();
+    push(stack_to_reverse, 1);
+    push(stack_to_reverse, 2);
+    printf("stack_to_reverse's top element is: \"%d\" bottom element:\" %d\"\n" , stack_to_reverse->top->number , stack_to_reverse->top->nextPtr->number);
+    stackrvrs(stack_to_reverse);
+    printf("stack_to_reverse's top element is now: \"%d\" bottom element is now :\" %d\"\n\n" , stack_to_reverse->top->number , stack_to_reverse->top->nextPtr->number);
+
+
+stackrvrs(Stack*) function takes parameter as pointer to Stack to reverse and doesnt return anything after reversing stack. 
 
 
 
@@ -98,10 +146,3 @@ its_first_queue--->count : 				Returns node count of queue
 its_first_queue--->isEmpty : 			returns True if queue is not empty, False if its empty
 its_first_queue--->head : 				Returns head of of queue
 its_first_queue--->head--->nextPtr		May be used to traverse arround queues Nodes.
-
-
-
-
-
-
-
