@@ -29,6 +29,7 @@
 		1B369B33296D8E3600BE65E1 /* stack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
 		1B369B35296DA1A400BE65E1 /* linkedlist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = linkedlist.h; sourceTree = "<group>"; };
 		1B369B36296DA71900BE65E1 /* readme Documentation.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "readme Documentation.rtf"; sourceTree = "<group>"; };
+		1B369B38296E925800BE65E1 /* documentation.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = documentation.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +46,7 @@
 		1B0CBD992965DD4000D6253F = {
 			isa = PBXGroup;
 			children = (
+				1B369B38296E925800BE65E1 /* documentation.txt */,
 				1B369B36296DA71900BE65E1 /* readme Documentation.rtf */,
 				1B369B35296DA1A400BE65E1 /* linkedlist.h */,
 				1B369B33296D8E3600BE65E1 /* stack.h */,
