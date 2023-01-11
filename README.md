@@ -1,41 +1,47 @@
-
 Cstructures Documentation:
 
 1. Quick Start Quide
 
 
-
-1.  Quick Start Guide: 
-
 Before including headers you should define qnodes ,snodes and lnodes members with macro functions because every function and node created respect to your settings.
+Queue contains pointer snode,  called tail and head 
+Stack contains pointer snode,  called top
+List contains pointer to lnode called lnode
+
+each of these nodes contains index  that saves nodes order in Stack, List or  Queue .Nodes also contains nextPtr that link node with next nodes.
+Cstructures biggest feature is that you can set these nodes members with defining them with macro variables.
+
+<img width="1379" alt="image" src="https://user-images.githubusercontent.com/114332577/211735609-637556b9-7fa0-4541-8c73-66f467d0b518.png">
 
 Quick definition Guide:
 
-for defining a string called name in Queue nodes you can use following syntax before including header.
+to define a string called "name" in Queue nodes you can use following syntax before including header.
 maximum of 5 arbitrary members can be included to these nodes. most node setters named with QNODE[ node_number ]TYPE or  QNODE[ node_number ]NAME
 
 
-#define QNODE0TYPE char*
-#define QNODE0NAME name
+
+
+	#define QNODE0TYPE char*
+	#define QNODE0NAME name
 Sets  member for Queue nodes.
 
 
-#define SNODE3TYPE int
-#define SNODE3NAME number
+	#define SNODE3TYPE int
+	#define SNODE3NAME number
 Sets  member for Stacks nodes.
 
 
 
-#define LNODE3TYPE char*
-#define LNODE3NAME text
+	#define LNODE3TYPE char*
+	#define LNODE3NAME text
 Sets  member for List nodes.
 
 
 Now you are ready for including headers: 
 
-#include "queue.h"
-#include "stack.h"
-#include "linkedlist.h"
+	#include "queue.h"
+	#include "stack.h"
+	include "linkedlist.h"
 
 
 
@@ -43,9 +49,9 @@ Now you are ready for including headers:
 after setting structures node member you can simply initalize a Queue, Stack or List object. 
 Warn that queueinit() function returns pointer to Queue :
 
-Queue *its_first_queue = queueinit();
-Stack *its_first_stack = stackinit();
-List *its_first_list = listinit();
+	Queue *its_first_queue = queueinit();
+	Stack *its_first_stack = stackinit();
+	List *its_first_list = listinit();
 
 
 
@@ -65,10 +71,10 @@ and warn that their position are formed with node setters number
 
 Queue, Stacks and List object serves  you many attributes few of them is:
 
-its_first_queue--->count : 				Returns node count of queue
-its_first_queue--->isEmpty : 			returns True if queue is not empty, False if its empty
-its_first_queue--->head : 				Returns head of of queue
-its_first_queue--->head--->nextPtr		May be used to traverse arround queues Nodes.
+	its_first_queue--->count : 				Returns node count of queue
+	its_first_queue--->isEmpty : 			returns True if queue is not empty, False if its empty
+	its_first_queue--->head : 				Returns head of of queue
+	its_first_queue--->head--->nextPtr		May be used to traverse arround queues Nodes.
 
 
     
@@ -85,7 +91,7 @@ Each nodes contains index number also using them may be useful for your code.
     printf("List first nodes index is %d and element of node  first node is \" %s\" \n " , its_first_list->root->index,its_first_list->root->text);
     
     insert(its_first_list, 0, "im going to be first node");
-    printf("List first nodes index is %d and element of node  first node is \" %s \" \n " , its_first_list->root->index,its_first_list->root->text);
+    printf("List first nodes index is %d and element of node  first node is \" %s \" \n \n" , its_first_list->root->index,its_first_list->root->text);
 
 
 There is two options for adding elements to list append functions adds node to end of function.  insert functions adds index to specified position. also you can access List elements by [LISTNAME]->root->[YOUR VARIABLE NAME]
@@ -202,4 +208,3 @@ Also List has special function called void listextend(List*,List*)
     printf("base list 1st node contains \"%s\" its extenders node contains:\"%s\"" , base_list->root->text , base_list->root->nextPtr->text);
 
 This function extend first List with second one thus second list nodes become accessable within first List.
-
