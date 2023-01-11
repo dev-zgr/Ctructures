@@ -1,11 +1,12 @@
 {\rtf1\ansi\ansicpg1254\cocoartf2706
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;}
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;\f2\fnil\fcharset0 Menlo-Bold;
+}
 {\colortbl;\red255\green255\blue255;\red0\green0\blue255;\red255\green255\blue255;\red0\green0\blue0;
 \red163\green21\blue21;\red43\green131\blue159;\red0\green0\blue0;\red28\green70\blue74;\red50\green109\blue116;
-\red108\green54\blue169;\red196\green26\blue22;\red28\green0\blue207;}
+\red108\green54\blue169;\red196\green26\blue22;\red28\green0\blue207;\red155\green35\blue147;}
 {\*\expandedcolortbl;;\csgenericrgb\c0\c0\c100000;\csgenericrgb\c100000\c100000\c100000;\csgenericrgb\c0\c0\c0;
 \csgenericrgb\c63900\c8200\c8200;\csgenericrgb\c16900\c51200\c62500;\csgenericrgb\c0\c0\c0\c85000;\csgenericrgb\c10981\c27276\c28869;\csgenericrgb\c19418\c42935\c45455;
-\csgenericrgb\c42190\c21278\c66379;\csgenericrgb\c77000\c10200\c8600;\csgenericrgb\c11000\c0\c81000;}
+\csgenericrgb\c42190\c21278\c66379;\csgenericrgb\c77000\c10200\c8600;\csgenericrgb\c11000\c0\c81000;\csgenericrgb\c60759\c13753\c57628;}
 \margl1440\margr1440\vieww9000\viewh8400\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
@@ -16,23 +17,37 @@
 1. Quick Start Quide\
 \
 \
-\
-1.  Quick Start Guide: \
-\
 Before including headers you should define qnodes ,snodes and lnodes members with macro functions because every function and node created respect to your settings.\
+Queue contains pointer snode,  called tail and head \
+Stack contains pointer snode,  called top\
+List contains pointer to lnode called lnode\
+\
+each of these nodes contains index  that saves nodes order in Stack, List or  Queue .Nodes also contains nextPtr that link node with next nodes.\
+Cstructures biggest feature is that you can set these nodes members with defining them with macro variables.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
 \
 Quick definition Guide:\
 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-\cf0 for defining a string called name in Queue nodes you can use following syntax before including header.\
+\cf0 to define a string called "name" in Queue nodes you can use following syntax before including header.\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 \cf0 maximum of 5 arbitrary members can be included to these nodes. most node setters named with QNODE[ node_number ]TYPE or  QNODE[ node_number ]NAME\
 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
 
-\f1\fs22 \cf2 \cb3 #define QNODE0TYPE char*\cf4 \
-\cf2 #define QNODE0NAME name
+\f1\fs22 \cf2 \cb3 	#define QNODE0TYPE char*\cf4 \
+\cf2 	#define QNODE0NAME name
 \f0\fs24 \cf0 \cb1 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 \cf0 Sets  member for Queue nodes.\
@@ -40,8 +55,8 @@ Quick definition Guide:\
 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
 
-\f1\fs22 \cf2 \cb3 #define SNODE3TYPE int\cf4 \
-\cf2 #define SNODE3NAME number
+\f1\fs22 \cf2 \cb3 	#define SNODE3TYPE int\cf4 \
+\cf2 	#define SNODE3NAME number
 \f0\fs24 \cf0 \cb1 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 \cf0 Sets  member for Stacks nodes.\
@@ -50,8 +65,8 @@ Quick definition Guide:\
 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
 
-\f1\fs22 \cf2 \cb3 #define LNODE3TYPE char*\cf4 \
-\cf2 #define LNODE3NAME text
+\f1\fs22 \cf2 \cb3 	#define LNODE3TYPE char*\cf4 \
+\cf2 	#define LNODE3NAME text
 \f0\fs24 \cf0 \cb1 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 \cf0 Sets  member for List nodes.\
@@ -61,12 +76,13 @@ Now you are ready for including headers: \
 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
 
-\f1\fs22 \cf2 \cb3 #include \cf5 "queue.h"\cf4 \
-\cf2 #include \cf5 "stack.h"\cf4 \
-\cf2 #include \cf5 "linkedlist.h"
+\f1\fs22 \cf2 \cb3 	#include \cf5 "queue.h"\cf4 \
+\cf2 	#include \cf5 "stack.h"\cf4 \
+\cf2 	include \cf5 "linkedlist.h"
 \f0\fs24 \cf0 \cb1 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 \cf0 \
+\
 \
 \
 after setting structures node member you can simply initalize a Queue, Stack or List object. \
@@ -74,9 +90,9 @@ Warn that queueinit() function returns pointer to Queue :\
 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
 
-\f1\fs22 \cf6 \cb3 Queue\cf4  *its_first_queue = \cf6 queueinit\cf4 ();\
-\cf6 Stack\cf4  *its_first_stack = \cf6 stackinit\cf4 ();\
-\cf6 List\cf4  *its_first_list = \cf6 listinit\cf4 ();
+\f1\fs22 \cf6 \cb3 	Queue\cf4  *its_first_queue = \cf6 queueinit\cf4 ();\
+\cf6 	Stack\cf4  *its_first_stack = \cf6 stackinit\cf4 ();\
+\cf6 	List\cf4  *its_first_list = \cf6 listinit\cf4 ();
 \f0\fs24 \cf0 \cb1 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 \cf0 \
@@ -93,7 +109,22 @@ after initialize your you can add  new nodes to these objects:\
 \
 Enqueue functions adds new to to queue respect to queue datastructure's rules. also you can access queues elements by [QUEUENAME]->head->[YOUR VARIABLE NAME]\
 Also each qnode elements contains nextPtr so you can traverse around each individual node with [QUEUENAME]->head->nextPtr->[YOUR VARIABLE NAME]\
-Each nodes contains index number also using them may be useful for your code.\
+Each nodes contains index number also using them may be useful for your code. \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 as we mentioned before  all functions and nodes formed respect to your settings. So enqueue functions parameters list formed with our settings #define QNODE0TYPE char* #define QNODE0NAME name. \
+and warn that their position are formed with node setters number\
+\
+Queue, Stacks and List object serves  you many attributes few of them is:\
+\
+	its_first_queue--->count : 				Returns node count of queue\
+	its_first_queue--->isEmpty : 			returns True if queue is not empty, False if its empty\
+	its_first_queue--->head : 				Returns head of of queue\
+	its_first_queue--->head--->nextPtr		May be used to traverse arround queues Nodes.\
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+
+\f1\fs22 \cf4 \cb3 \
 \
     \
     \cf6 push\cf4 (its_first_stack, 10);\
@@ -109,7 +140,7 @@ Each nodes contains index number also using them may be useful for your code.\
     \cf6 printf\cf4 (\cf5 "List first nodes index is %d and element of node  first node is \\" %s\\" \\n "\cf4  , its_first_list->\cf6 root\cf4 ->\cf6 index\cf4 ,its_first_list->\cf6 root\cf4 ->\cf6 text\cf4 );\
     \
     \cf6 insert\cf4 (its_first_list, 0, \cf5 "im going to be first node"\cf4 );\
-    \cf6 printf\cf4 (\cf5 "List first nodes index is %d and element of node  first node is \\" %s \\" \\n "\cf4  , its_first_list->\cf6 root\cf4 ->\cf6 index\cf4 ,its_first_list->\cf6 root\cf4 ->\cf6 text\cf4 );\
+    \cf6 printf\cf4 (\cf5 "List first nodes index is %d and element of node  first node is \\" %s \\" \\n \\n"\cf4  , its_first_list->\cf6 root\cf4 ->\cf6 index\cf4 ,its_first_list->\cf6 root\cf4 ->\cf6 text\cf4 );\
 \
 \
 There is two options for adding elements to list append functions adds node to end of function.  insert functions adds index to specified position. also you can access List elements by [LISTNAME]->root->[YOUR VARIABLE NAME]\
@@ -160,24 +191,105 @@ Reverse functions are built for every data List's Stacks and Queues:
     \cf9 queuervrs\cf7 (queue_to_reverse);\
    \cf10 printf\cf7 (\cf11 "queue_to_revers's first element is now : \\"%s\\" second element is now:\\" %s\\"\\n"\cf7  , queue_to_reverse->\cf9 head\cf7 ->\cf9 name\cf7  , queue_to_reverse->\cf9 head\cf7 ->\cf9 nextPtr\cf7 ->\cf9 name\cf7 );\
 \
-queuervrs function takes parameter as pointer to queue to reverse and doesnt return anything after reversing queue 
+queuervrs(Queue*) function takes parameter as pointer to queue to reverse and doesnt return anything after reversing queue.\
+\
+	\
+	\cf8 Stack\cf7  *stack_to_reverse = \cf9 stackinit\cf7 ();\
+    \cf9 push\cf7 (stack_to_reverse, \cf12 1\cf7 );\
+    \cf9 push\cf7 (stack_to_reverse, \cf12 2\cf7 );\
+    \cf10 printf\cf7 (\cf11 "stack_to_reverse's top element is: \\"%d\\" bottom element:\\" %d\\"\\n"\cf7  , stack_to_reverse->\cf9 top\cf7 ->\cf9 number\cf7  , stack_to_reverse->\cf9 top\cf7 ->\cf9 nextPtr\cf7 ->\cf9 number\cf7 );\
+    \cf9 stackrvrs\cf7 (stack_to_reverse);\
+    \cf10 printf\cf7 (\cf11 "stack_to_reverse's top element is now: \\"%d\\" bottom element is now :\\" %d\\"\\n\\n"\cf7  , stack_to_reverse->\cf9 top\cf7 ->\cf9 number\cf7  , stack_to_reverse->\cf9 top\cf7 ->\cf9 nextPtr\cf7 ->\cf9 number\cf7 );\
+\
+\
+stackrvrs(Stack*) function takes parameter as pointer to Stack to reverse and doesnt return anything after reversing stack. \
+\
+\
+    \cf8 List\cf7  *list_to_reverse = \cf9 listinit\cf7 ();\
+    \cf9 append\cf7 (list_to_reverse, \cf11 "first"\cf7 );\
+    \cf9 append\cf7 (list_to_reverse, \cf11 "second"\cf7 );\
+    \cf10 printf\cf7 (\cf11 "list_to_reverse's first element is: \\"%s\\" second element:\\" %s\\"\\n"\cf7  , list_to_reverse->\cf9 root\cf7 ->\cf9 text\cf7  , list_to_reverse->\cf9 root\cf7 ->\cf9 nextPtr\cf7 ->\cf9 text\cf7 );\
+    \cf9 listrvrs\cf7 (list_to_reverse);\
+    \cf10 printf\cf7 (\cf11 "list_to_reverse's top element is now: \\"%s\\" second element is now :\\" %s\\"\\n\\n"\cf7  ,list_to_reverse->\cf9 root\cf7 ->\cf9 text\cf7  , list_to_reverse->\cf9 root\cf7 ->\cf9 nextPtr\cf7 ->\cf9 text\cf7 );\
+\
+listrvrs(List*) function takes parameter as pointer to List to reverse and doesnt return anything after reversing stack. \
+\
+
 \fs22 \cf4 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
 \cf4 \
+Cstructures also contains functions that lets List , Stack or Queues nodes specified with index;\
+\
+\pard\tx593\pardeftab593\pardirnatural\partightenfactor0
+
+\fs24 \cf7     \cf10 printf\cf7 (\cf11 "queue_to_reverse's nodes with index 1 contains value: \\"%s \\"\\n"\cf7  , \cf9 queueget\cf7 (queue_to_reverse, \cf12 1\cf7 )->\cf9 name\cf7 );\
+    \cf10 printf\cf7 (\cf11 "stack_to_reverse's nodes with index 1 contains value: \\"%d \\"\\n"\cf7  , \cf9 stackget\cf7 (stack_to_reverse, \cf12 1\cf7 )->\cf9 number\cf7 );\
+    \cf10 printf\cf7 (\cf11 "list_to_reverse's nodes with index 1 contains value: \\"%s \\"\\n"\cf7  , \cf9 listget\cf7 (list_to_reverse, \cf12 1\cf7 )->\cf9 text\cf7 );\
+\
+queueget(Queue* , int) , stackget(Stack*, int) and listget(List* , int) functions returns object reference (pointer) to qnode , snode and lnode object with related index.\
+\
+
+\fs22 \cf4 \
+Also There is peek functions for List , Stacks and Queues. peek functions help you to seek any type of value in these objects nodes. if founds the seeking value returns object reference to that node if not returns NULL\
+\
+
+\fs24 \cf7    
+\f2\b \cf13 char
+\f1\b0 \cf7 * looking_for_value = \cf11 "first"\cf7 ;\
+    \cf8 lnode\cf7  *findit = \cf9 listpeek\cf7 (list_to_reverse, &looking_for_value);\
+    \cf10 printf\cf7 (\cf11 "list_to_reverse list contains \\"%s \\" value in node with index :\\"%d\\" "\cf7  , findit->\cf9 text\cf7 ,findit->\cf9 index\cf7 );\
+
+\fs22 \cf4 \
+lnode *listpeek(List* , void*) functions takes argument as pointer to List , and pointer to void. you can pass pointer to any type of object here you can seek for int , char* , float , double and more. this specs gives you extremely flexible search possibility along nodes.\
+\
+\
+
+\fs24 \cf7     
+\f2\b \cf13 char
+\f1\b0 \cf7 * looking_in_queue = \cf11 "im first element"\cf7 ;\
+    \cf8 qnode\cf7  *find_queue = \cf9 queuepeek\cf7 (queue_to_reverse, &looking_in_queue);\
+    \cf10 printf\cf7 (\cf11 "list_to_reverse list contains \\"%s \\" value in node with index :\\"%d\\" \\n\\n"\cf7  , find_queue->\cf9 name\cf7  , find_queue->\cf9 index\cf7 );\
+\
+\
+You can to same in queues with qnode *queuepeek(Queue* , void*) function.\
+\
+
+\fs22 \cf4 \
+
+\fs24 \cf7     
+\f2\b \cf13 int
+\f1\b0 \cf7  looking_in_stack = \cf12 1\cf7 ;\
+    \cf8 snode\cf7  *find_stack = \cf9 stackpeek\cf7 (stack_to_reverse, &looking_in_stack);\
+    \cf10 printf\cf7 (\cf11 "list_to_reverse list contains \\"%d \\" value in node with index :\\"%d\\" \\n\\n"\cf7  , find_stack->\cf9 number\cf7  , find_stack->\cf9 index\cf7 );\
+\
+Also Stacks has same functions to : snode *stackpeek(Stack*, void*)\
+\
+\
+\
+Also List has special function called void listextend(List*,List*)
+\fs22 \cf4 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 \cb1 \
+\f0\fs24 \cf0 \cb1  \
 \
-as we mentioned before  all functions and nodes formed respect to your setting so enqueue functions parameters list formed with our settings #define QNODE0TYPE char* #define QNODE0NAME name. \
-and warn that their position are formed with node setters number\
+	
+\f1 \cf8 \cb3 List\cf7  *base_list = \cf9 listinit\cf7 ()\
+\pard\tx593\pardeftab593\pardirnatural\partightenfactor0
+\cf7     \cf9 append\cf7 (base_list, \cf11 "its the baselist first node"\cf7 );\
+    \cf8 List\cf7  *extender_list = \cf9 listinit\cf7 ();\
+    \cf9 append\cf7 (extender_list, \cf11 "its extenders first node"\cf7 );\
+    \cf9 listextend\cf7 (base_list, extender_list);\
+    \cf10 printf\cf7 (\cf11 "base list 1st node contains \\"%s\\" its extenders node contains:\\"%s\\""\cf7  , base_list->\cf9 root\cf7 ->\cf9 text\cf7  , base_list->\cf9 root\cf7 ->\cf9 nextPtr\cf7 ->\cf9 text\cf7 );\
+\
+This function extend first List with second one thus second list nodes become accessable within first List.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0 \cf0 \cb1 \
 \
 \
-Queue object serves  you many attributes few of them is:\
 \
-its_first_queue--->count : 				Returns node count of queue\
-its_first_queue--->isEmpty : 			returns True if queue is not empty, False if its empty\
-its_first_queue--->head : 				Returns head of of queue\
-its_first_queue--->head--->nextPtr		May be used to traverse arround queues Nodes.\
+\
+\
 \
 \
 \
