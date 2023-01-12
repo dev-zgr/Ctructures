@@ -3,7 +3,7 @@ Cstructures Documentation:
 1. Quick Start Quide
 
 
-Before including headers you should define qnodes ,snodes and lnodes members with macro functions because every function and node created respect to your settings.
+Before including headers you should define qnodes ,snodes and lnodes members with macro functions because every function and node created respect to your node settings.
 Queue contains pointer qnode,  called tail and head 
 Stack contains pointer snode,  called top
 List contains pointer to lnode called lnode
