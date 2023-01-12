@@ -4,7 +4,7 @@ Cstructures Documentation:
 
 
 Before including headers you should define qnodes ,snodes and lnodes members with macro functions because every function and node created respect to your settings.
-Queue contains pointer snode,  called tail and head 
+Queue contains pointer qnode,  called tail and head 
 Stack contains pointer snode,  called top
 List contains pointer to lnode called lnode
 
@@ -41,7 +41,7 @@ Now you are ready for including headers:
 
 	#include "queue.h"
 	#include "stack.h"
-	include "linkedlist.h"
+	#include "linkedlist.h"
 
 
 
